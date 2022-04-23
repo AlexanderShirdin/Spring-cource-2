@@ -8,18 +8,67 @@
     http://www.springframework.org/schema/context/spring-context.xsd">
 
     <context:property-placeholder location="applicationProperty.properties"/>
+    <!--    <bean id="petBean" class="org.lesson1.Cat" init-method="init" destroy-method="destroy" scope="prototype"/>-->
 
-    <bean id="petBean" class="org.example.Cat" init-method="init" destroy-method="destroy" scope="prototype"/>
+    <!--        <bean id="pet" class="org.lesson1.Cat"/>-->
 
-<!--    <bean id="person" class="org.example.Person">-->
-<!--        <constructor-arg ref="pet"/>-->
-<!--    </bean>-->
+    <!--     через конструктор-->
+    <!--    <bean id="person" class="org.lesson1.Person">-->
+    <!--        <constructor-arg ref="pet"/>-->
+    <!--    </bean>-->
 
-    <bean id="person" class="org.example.Person">
-<!--        <property name="pet" ref="petBean"/>-->
-        <property name="age" value="${person.age}"/>
-        <property name="name" value="${person.name}"/>
+    <!--     через сетеры-->
+    <!--        <bean id="person" class="org.lesson1.Person">-->
+    <!--                    <property name="pet" ref="pet"/>-->
+    <!--                    <property name="age" value="${person.age}"/>-->
+    <!--                    <property name="name" value="${person.name}"/>-->
+    <!--        </bean>-->
+
+
+    <bean id="wall" class="org.lesson1.DZ.Wall">
+        <property name="material" value="${wall.material}"/>
+        <property name="height" value="${wall.height}"/>
     </bean>
 
+    <bean id="door" class="org.lesson1.DZ.Door">
+        <property name="material" value="${door.material}"/>
+        <property name="color" value="${door.color}"/>
+    </bean>
+
+    <bean id="window" class="org.lesson1.DZ.Window">
+        <property name="material" value="${window.material}"/>
+        <property name="color" value="${window.color}"/>
+        <property name="quantity" value="${window.quantity}"/>
+    </bean>
+
+    <bean id="house" class="org.lesson1.DZ.House">
+        <constructor-arg ref="wall"/>
+        <constructor-arg ref="door"/>
+        <constructor-arg ref="window"/>
+        <property name="type" value="${house.type}"/>
+        <property name="color" value="${house.color}"/>
+        <property name="square" value="${house.square}"/>
+    </bean>
+
+    <bean id="car" class="org.lesson1.DZ.Car">
+        <property name="type" value="${car.type}"/>
+        <property name="color" value="${car.color}"/>
+        <property name="horsePower" value="${car.horsePower}"/>
+    </bean>
+
+    <bean id="pet" class="org.lesson1.DZ.Pet">
+        <property name="type" value="${pet.type}"/>
+        <property name="breed" value="${pet.breed}"/>
+        <property name="name" value="${pet.name}"/>
+        <property name="age" value="${pet.age}"/>
+    </bean>
+
+    <bean id="emp" class="org.lesson1.DZ.Employee">
+        <property name="house" ref="house"/>
+        <property name="car" ref="car"/>
+        <property name="pet" ref="pet"/>
+        <property name="name" value="${employee.name}"/>
+        <property name="age" value="${employee.age}"/>
+    </bean>
 
 </beans>

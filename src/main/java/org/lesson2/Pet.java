@@ -1,4 +1,4 @@
-package org.example;
+package org.lesson2;
 
 public interface Pet {
     void say();

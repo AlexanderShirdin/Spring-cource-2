@@ -1,8 +1,5 @@
-package org.example;
+package org.lesson1;
 
-import org.springframework.stereotype.Service;
-
-//@Service
 public class Dog implements Pet{
 
     public Dog() {
