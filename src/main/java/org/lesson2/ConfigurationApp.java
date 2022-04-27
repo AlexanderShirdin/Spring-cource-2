@@ -1,24 +1,22 @@
-package org.lesson2;//package org.example;
+package org.lesson2;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+
+@Configuration
+@ComponentScan("org.lesson2")
+@PropertySource(value = "classpath:applicationProperty.properties")
+public class ConfigurationApp {
 //
-//import org.springframework.context.annotation.ComponentScan;
-//import org.springframework.context.annotation.Configuration;
-//import org.springframework.context.annotation.PropertySource;
-//
-//public class ConfigurationApp {
-//
-//    @Configuration
-//    @ComponentScan("org.example")
-//    @PropertySource("classpath:applicationProperty.properties")
-//    public class ConfigurationApps {
-//
-////    @Bean
-////    public Cat cat(){
-////        return new Cat();
-////    }
-////
-////    @Bean
-////    public Person person(){
-////        return new Person(cat());
-////    }
+//    @Bean
+//    public Cat cat() {
+//        return new Cat();
 //    }
-//}
+//
+//    @Bean
+//    public Person person() {
+//        return new Person(cat());
+//    }
+}

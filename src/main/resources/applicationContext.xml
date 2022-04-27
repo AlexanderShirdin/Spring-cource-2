@@ -11,6 +11,7 @@
     <!--    <bean id="petBean" class="org.lesson1.Cat" init-method="init" destroy-method="destroy" scope="prototype"/>-->
 
     <!--        <bean id="pet" class="org.lesson1.Cat"/>-->
+            <bean id="petBean" class="org.lesson2.Cat" init-method="init" destroy-method="destroy" scope="prototype"/>
 
     <!--     через конструктор-->
     <!--    <bean id="person" class="org.lesson1.Person">-->
@@ -24,6 +25,11 @@
     <!--                    <property name="name" value="${person.name}"/>-->
     <!--        </bean>-->
 
+<!--            <bean id="person" class="org.lesson2.Person">-->
+<!--                        <property name="pet" ref="petBean"/>-->
+<!--                        <property name="age" value="${person.age}"/>-->
+<!--                        <property name="name" value="${person.name}"/>-->
+<!--            </bean>-->
 
     <bean id="wall" class="org.lesson1.DZ.Wall">
         <property name="material" value="${wall.material}"/>

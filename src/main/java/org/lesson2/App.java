@@ -1,35 +1,24 @@
 package org.lesson2;
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class App {
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context =
-               new ClassPathXmlApplicationContext("applicationContext.xml");
+               new ClassPathXmlApplicationContext("applicationContext1.xml");
 
-        Cat pet = context.getBean("petBean", Cat.class);
-        pet.say();
+        Pet cat = context.getBean("cat", Pet.class);
+//      Pet dog = context.getBean("dog", Pet.class);
 
-//        Person person = context.getBean("person", Person.class);
-//        Person person2 = context.getBean("person", Person.class);
-//        person2.setName("Ivan");
-//        person2.setAge(50);
-//
-//        System.out.println("Person name " + person.name);
-//        System.out.println("Person ag e" + person.age);
-//
-//        System.out.println("Person2 name " + person2.name);
-//        System.out.println("Person2 age " + person2.age);
-//        person.comeMyPet();
-//        System.out.println(person.age);
-//        System.out.println(person.name);
+        System.out.println("*************************");
 
-//        Pet pet1 = new Cat();
-//        Person person = new Person(pet1);
-//        person.comeMyPet();
+        Person person = context.getBean("person", Person.class);
+        Person person1 = context.getBean("person", Person.class);
+        person.comeMyPet();
+        System.out.println(person.name);
+        System.out.println(person.age);
 
-//       Pet pet=new Dog();
-//       pet.say();
-
+        context.close();
     }
 }

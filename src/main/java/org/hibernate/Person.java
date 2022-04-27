@@ -1,4 +1,4 @@
-package hibernate;
+package org.hibernate;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
