@@ -10,7 +10,6 @@ import javax.persistence.*;
 @Data
 @Accessors(chain = true)
 public class Person {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -19,7 +18,12 @@ public class Person {
     //    @Column(name = "l_name")
     private String lastName;
     private Integer salary;
-    @Column(name = "department_work")
-    private String department;
-
+    //    @Column(name = "department_work")
+    //    private String department;
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "person_details")
+    private Details details;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "department_id")
+    private Department department;
 }
