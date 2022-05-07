@@ -1,7 +1,9 @@
-package org.hibernate;
+package org.hibernate.lesson4;
 
 import lombok.Data;
+import lombok.ToString;
 import lombok.experimental.Accessors;
+import org.hibernate.lesson3.Person;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -21,16 +23,17 @@ public class Department {
     private Integer minSalary;
     @Column(name = "max_salary")
     private Integer maxSalary;
-    @OneToMany(mappedBy = "department",cascade = {
+    @OneToMany(mappedBy = "department", cascade = {
             CascadeType.DETACH,
             CascadeType.PERSIST,
             CascadeType.MERGE,
             CascadeType.REFRESH
     })
+    @ToString.Exclude
     private List<Person> persons;
 
-    public void addPersonToDepartment(Person person){
-        if(persons==null) persons = new ArrayList<>();
+    public void addPersonToDepartment(Person person) {
+        if (persons == null) persons = new ArrayList<>();
         person.setDepartment(this);
         persons.add(person);
     }

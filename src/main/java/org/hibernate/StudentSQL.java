@@ -4,14 +4,13 @@ import lombok.Data;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
 @Table(name = "student")
 @Data
 @Accessors(chain = true)
-public class Student {
+public class StudentSQL{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

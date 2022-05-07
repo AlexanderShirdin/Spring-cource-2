@@ -1,7 +1,9 @@
-package org.hibernate;
+package org.hibernate.lesson3;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.hibernate.lesson4.Department;
+import org.hibernate.lesson4.Details;
 
 import javax.persistence.*;
 
@@ -18,8 +20,8 @@ public class Person {
     //    @Column(name = "l_name")
     private String lastName;
     private Integer salary;
-    //    @Column(name = "department_work")
-    //    private String department;
+//    @Column(name = "department_work")
+//    private String department;
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "person_details")
     private Details details;

@@ -1,6 +1,9 @@
-package org.hibernate;
+package org.hibernate.lesson4;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.lesson3.Person;
 
 public class TestHiber2 {
     public static void main(String[] args) {
@@ -44,21 +47,20 @@ public class TestHiber2 {
             department.addPersonToDepartment(person);
             department.addPersonToDepartment(person2);
 
-            details.setPerson(person);
+//            details.setPerson(person);
 
             Person person1 = null;
             session.beginTransaction();
+
 //            session.save(person);
-//            person1 = session.get(Person.class, 1);
+            person1 = session.get(Person.class, 1);
+            System.out.println(person1);
 
-//            System.out.println(person1);
-
-            session.persist(department);
+//            session.persist(department);
 //            session.save(details);
             session.getTransaction().commit();
 
         } catch (Exception e) {
-
             System.out.println(e.getMessage());
         } finally {
             session.close();

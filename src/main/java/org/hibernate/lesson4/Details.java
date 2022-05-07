@@ -1,7 +1,9 @@
-package org.hibernate;
+package org.hibernate.lesson4;
 
 import lombok.Data;
+import lombok.ToString;
 import lombok.experimental.Accessors;
+import org.hibernate.lesson3.Person;
 
 import javax.persistence.*;
 
@@ -17,5 +19,6 @@ public class Details {
     private String numberPhone;
     private String address;
     @OneToOne(mappedBy = "details", cascade = CascadeType.ALL)
+    @ToString.Exclude
     private Person person;
 }
