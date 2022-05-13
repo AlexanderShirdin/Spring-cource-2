@@ -1,4 +1,4 @@
-package org.hibernate.DZ;
+package org.hibernate.budget;
 
 import lombok.Data;
 import lombok.ToString;
@@ -7,17 +7,19 @@ import lombok.experimental.Accessors;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "answer_table")
+@Table(name = "significant_expenses_table")
 @Data
 @Accessors(chain = true)
-public class Answer {
+public class SignificantExpense {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "content_answer")
-    private String answer;
+    @Column(name = "name_extra_income")
+    private String name;
+    @Column(name = "value_extra_income")
+    private String value;
 
     @ManyToOne
     @ToString.Exclude
-    private Question question;
+    private Budget budget;
 }

@@ -5,7 +5,6 @@ import lombok.ToString;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -18,13 +17,13 @@ public class Profile {
     private Integer id;
     private String profile;
 
-    @OneToMany(mappedBy = "profile", cascade = {
-            CascadeType.DETACH,
-            CascadeType.PERSIST,
-            CascadeType.MERGE,
-            CascadeType.REFRESH
-    })
-    // Убрать для просмотра полной цепочки от профиля или уровня
-    @ToString.Exclude
-    private List<Question> questions;
+//    @OneToMany(mappedBy = "profile", cascade = {
+//            CascadeType.DETACH,
+//            CascadeType.PERSIST,
+//            CascadeType.MERGE,
+//            CascadeType.REFRESH
+//    })
+//    // Убрать для просмотра полной цепочки от профиля
+//    @ToString.Exclude
+//    private List<Question> questions;
 }

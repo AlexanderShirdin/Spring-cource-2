@@ -34,18 +34,6 @@ public class TestDZ {
             Level level3 = new Level();
             level3.setLevel("Senior");
 
-            Question question1 = new Question();
-            question1.setQuestion("What is Hibernate?");
-
-            Question question2 = new Question();
-            question2.setQuestion("What is Java Persistence API?");
-
-            Question question3 = new Question();
-            question3.setQuestion("What is Spring?");
-
-            Question question4 = new Question();
-            question4.setQuestion("What is SRS?");
-
             Answer answer1 = new Answer();
             answer1.setAnswer("Library for the Java programming language");
 
@@ -58,18 +46,34 @@ public class TestDZ {
             Answer answer4 = new Answer();
             answer4.setAnswer("A document or set of documents that describe the functions of a system or software application.");
 
-            question1.setProfile(profile1).setLevel(level1).addAnswerToQuestion(answer1);
-            question2.setProfile(profile1).setLevel(level2).addAnswerToQuestion(answer2);
-            question3.setProfile(profile1).setLevel(level3).addAnswerToQuestion(answer3);
-            question4.setProfile(profile2).setLevel(level3).addAnswerToQuestion(answer4);
+            Question question1 = new Question();
+            question1.setQuestion("What is Hibernate?")
+                    .setProfile(profile1)
+                    .setLevel(level1)
+                    .addAnswerToQuestion(answer1);
+
+
+            Question question2 = new Question();
+            question2.setQuestion("What is Java Persistence API?")
+                    .setProfile(profile1)
+                    .setLevel(level2)
+                    .addAnswerToQuestion(answer2);
+
+
+            Question question3 = new Question();
+            question3.setQuestion("What is Spring?")
+                    .setProfile(profile1)
+                    .setLevel(level3)
+                    .addAnswerToQuestion(answer3);
+
+            Question question4 = new Question();
+            question4.setQuestion("What is SRS?")
+                    .setProfile(profile2)
+                    .setLevel(level3)
+                    .addAnswerToQuestion(answer4);
 
             session.beginTransaction();
 
-//            session.persist(profile1);
-//            session.persist(profile2);
-//            session.persist(level1);
-//            session.persist(level2);
-//            session.persist(level3);
 //            session.persist(question1);
 //            session.persist(question2);
 //            session.persist(question3);
@@ -81,14 +85,14 @@ public class TestDZ {
             List<Question> questionList1 = session.createQuery("from Question where level.level= 'Senior'", Question.class).getResultList();
             questionList1.forEach(System.out::println);
 
-            Profile profile = session.get(Profile.class,1);
+            Profile profile = session.get(Profile.class, 1);
             System.out.println(profile);
 
             Level level = session.get(Level.class,3);
             System.out.println(level);
 
-            Level level0 = session.get(Level.class,2);
-            System.out.println(level0.getQuestions());
+//            Level level0 = session.get(Level.class,2);
+//            System.out.println(level0.getQuestions());
 
             session.getTransaction().commit();
 

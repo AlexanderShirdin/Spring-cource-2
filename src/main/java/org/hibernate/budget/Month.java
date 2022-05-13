@@ -1,4 +1,4 @@
-package org.hibernate.DZ;
+package org.hibernate.budget;
 
 import lombok.Data;
 import lombok.ToString;
@@ -8,23 +8,22 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "level_table")
+@Table(name = "month_table")
 @Data
 @Accessors(chain = true)
-public class Level {
+public class Month {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "level_name")
-    private String level;
+    private String month;
 
-//    @OneToMany(mappedBy = "level", cascade = {
+//    @OneToMany(mappedBy = "month", cascade = {
 //            CascadeType.DETACH,
 //            CascadeType.PERSIST,
 //            CascadeType.MERGE,
 //            CascadeType.REFRESH
 //    })
-//    // Убрать для просмотра полной цепочки от уровня
+//    // Убрать для просмотра полной цепочки от года и месяца
 //    @ToString.Exclude
-//    private List<Question> questions;
+//    private List<Budget> budgets;
 }

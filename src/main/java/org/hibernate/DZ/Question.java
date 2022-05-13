@@ -33,13 +33,23 @@ public class Question {
         answers.add(answer);
     }
 
-    @ManyToOne
-    //Поставить для просмотра цепочки от профиля или уровня
+    @ManyToOne(cascade = {
+            CascadeType.DETACH,
+            CascadeType.PERSIST,
+            CascadeType.MERGE,
+            CascadeType.REFRESH
+    })
+    //Поставить для просмотра цепочки от профиля
 //    @ToString.Exclude
     private Profile profile;
 
-    @ManyToOne
-    //Поставить для просмотра цепочки от профиля или уровня
+    @ManyToOne(cascade = {
+            CascadeType.DETACH,
+            CascadeType.PERSIST,
+            CascadeType.MERGE,
+            CascadeType.REFRESH
+    })
+    //Поставить для просмотра цепочки от уровня
 //    @ToString.Exclude
     private Level level;
 }
